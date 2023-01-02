@@ -10,12 +10,24 @@ RUN apt-get update && \
   graphicsmagick \
   webp \
   mc && \
+  nodejs \
+  python \
+  python2 \
+  bash \
+  git \
+  apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
 COPY package.json .
-RUN npm install -g npm@8.1.3
-RUN npm install -g pm2
-RUN npm update
+
+RUN npm i -g npm
+
+RUN npm install
+
 COPY . .
+
+EXPOSE 5000
+
 RUN pm2 save
+
 CMD ["pm2-runtime", "next.js"]`
