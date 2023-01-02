@@ -14,7 +14,7 @@ RUN apt-get update && \
   python \
   python2 \
   bash \
-  git \
+  git &&\
   apt-get upgrade -y && \
   rm -rf /var/lib/apt/lists/*
 
@@ -29,7 +29,5 @@ RUN npm i -g pm2 && npm i pm2 -g
 COPY . .
 
 EXPOSE 5000
-
-RUN pm2 save
 
 CMD ["pm2-runtime", "next.js"]`
