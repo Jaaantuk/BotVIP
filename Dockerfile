@@ -24,6 +24,8 @@ RUN npm i -g npm
 
 RUN npm install
 
+RUN npm i -g pm2 && npm i pm2 -g
+
 COPY . .
 
 EXPOSE 5000
